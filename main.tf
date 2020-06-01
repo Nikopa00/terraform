@@ -81,9 +81,16 @@ resource "azurerm_cosmosdb_account" "db" {
 }
 
 resource "azurerm_storage_account" "bootdiagnistic" {
-  name                     = "bootdiag"
+  name                     = "bootdiagtest20200602"
   resource_group_name      = azurerm_resource_group.resourcegroup.name
   location                 = azurerm_resource_group.resourcegroup.location
   account_tier             = trim(var.account_type,"_GRS")
   account_replication_type = element(split("_",var.account_type),1)
+}
+
+resource "azurerm_virtual_network" "azvnet" {
+  name = "azurevnettf"
+  resource_group_name = azurerm_resource_group.resourcegroup.name
+  location = join("",var.loc)
+  address_space = [element(var.address_space,0)]
 }

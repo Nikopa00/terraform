@@ -44,3 +44,6 @@ networkrule = [
 /*enviornment = "prod"*/
 enviornment  = "sandbox"
 account_type = "standard_GRS"
+loc = ["east","us"]
+
+address_space = ["10.0.0.0/16","10.0.0.1/32","10.0.0.1/24"]
